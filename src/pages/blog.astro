@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const blog = await getCollection("blog");
+const title = "Blog";
+---
+
+<Layout title="Blog">
+	<h1>{title}</h1>
+	<p>
+		Aquí vas a encontrar articulos que tienen relación con el mundo de la
+		experiencia de usuario, el diseño de interfases y el desarrollo frontend.
+	</p>
+	{
+		blog.map((p) => {
+			return (
+				<div>
+					<a href={`/blog/${p.slug}`}>{p.data.title}</a>
+					<p>{p.data.excerpt}</p>
+				</div>
+			);
+		})
+	}
+</Layout>

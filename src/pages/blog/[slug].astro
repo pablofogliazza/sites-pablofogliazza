@@ -1,0 +1,30 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+// This function gets called at build time and generates the paths from the content folder
+export async function getStaticPaths() {
+	// Define the colection you are creating pages for
+	const allNewsletters = await getCollection("blog");
+
+	return allNewsletters.map((newsletter) => {
+		return {
+			params: { slug: newsletter.slug },
+			props: { newsletter },
+		};
+	});
+}
+
+const { newsletter } = Astro.props as {
+	newsletter: CollectionEntry<"blog">;
+};
+const { Content } = await newsletter.render();
+---
+
+<Layout title={newsletter.data.title}>
+	<h1>{newsletter.data.title}</h1>
+	<Content />
+	<p>
+		<a href="/">Back to previous newsletters</a>
+	</p>
+</Layout>
