@@ -1,7 +1,7 @@
-import { z, defineCollection } from 'astro:content';
+import { z, defineCollection } from "astro:content";
 
 const proyectoCollection = defineCollection({
-  type: 'content', // v2.5.0 y posteriores
+  type: "content", // v2.5.0 y posteriores
   schema: z.object({
     title: z.string(),
     tags: z.array(z.string()),
@@ -11,7 +11,7 @@ const proyectoCollection = defineCollection({
 });
 
 const blogCollection = defineCollection({
-  type: 'content', // v2.5.0 y posteriores
+  type: "content", // v2.5.0 y posteriores
   schema: z.object({
     title: z.string(),
     tags: z.array(z.string()),
@@ -21,6 +21,6 @@ const blogCollection = defineCollection({
 });
 
 export const collections = {
-  'proyectos': proyectoCollection,
-  'blog': blogCollection,
+  proyectos: proyectoCollection,
+  blog: blogCollection,
 };

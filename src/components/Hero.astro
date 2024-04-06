@@ -1,23 +1,101 @@
-<div class="hero">
-	<p>
-		¡Hola! Mi nombre es Pablo y soy desarrollador web desde el 2007. Me
-		especializo en convertir un diseño en código funcional. Trabajo remoto desde
-		Bahía Blanca, Argentina. <a href="/cv">Ver Curriculum</a>
-	</p>
-</div>
+---
+import '@fontsource-variable/literata'
+---
+
+<section class="hero">
+	<div class="hero__container">
+		<p><span>¡Hola! Me llamo Pablo</span></p>
+		<p>Soy desarrollador web especializado en convertir diseño en código.</p>
+		<div class="hero__buttons">
+			<a href="/cv">Ver Curriculum</a>
+			<a class="dos" href="/contacto">Contactame</a>
+		</div>
+	</div>
+</section>
 
 <style lang="scss">
 	.hero {
+		padding-top: 9rem;
+		padding-bottom: 3px;
 		display: flex;
-		justify-content: flex-start;
+		justify-content: center;
 		align-items: center;
 
-		// width: min(90%, 1366px);
-		// margin: 0 auto;
+		&__container {
+			width: min(90%, 740px);
+			margin: 0 auto;
+
+			display: flex;
+			flex-direction: column;
+			gap: 6px;
+		}
+
+		&__buttons {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 1rem;
+			margin-top: 1rem;
+		}
 	}
 
 	p {
-		color: var(--dark);
-		text-align: left;
+		font-family: p22-mackinac-pro, serif;
+		font-weight: 700;
+		font-style: normal;
+		font-size: 2.5rem;
+		line-height: 1.25;
+		color: rgba(var(--dark), 1);
+		max-width: 38ch;
+		margin: 0 auto;
+		text-align: center;
+
+		span {
+			font-weight: 400;
+		}
+	}
+
+	a {
+		display: inline-block;
+		padding: 1rem 2rem;
+		margin: 0;
+		font-family: p22-mackinac-pro, serif;
+		font-weight: 700;
+		font-style: normal;
+		font-size: 1rem;
+		line-height: 1.25;
+		color: rgba(var(--light), 1);
+		background-color: rgba(var(--dark), 1);
+		border-radius: 3rem;
+		text-decoration: none;
+
+		&:hover {
+			background-color: rgba(var(--accent), 1);
+		}
+	}
+
+	a.dos {
+		display: inline-block;
+		padding: 1rem 2rem;
+		margin: 0;
+		font-family: p22-mackinac-pro, serif;
+		font-weight: 700;
+		font-style: normal;
+		font-size: 1rem;
+		line-height: 1.25;
+		color: rgba(var(--dark), 1);
+		background-color: rgba(var(--dark), 0);
+		border-radius: 3rem;
+		border: 1px solid rgba(var(--dark), 0.1);
+		box-shadow:
+			0 0 10px 0 rgba(var(--dark), 0.1),
+			inset 0 0 8px 0 rgba(255, 255, 255, 1);
+		text-decoration: none;
+
+		&:hover {
+			background-color: rgba(var(--accent), 1);
+			box-shadow: 0 0 10px 0 rgba(var(--dark), 0.1);
+			color: rgba(var(--light), 1);
+		}
 	}
 </style>

@@ -1,25 +1,30 @@
 ---
 interface Props {
-	title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 
 // Supports weights 100-900
-import "@fontsource-variable/inter";
-//import "@fontsource-variable/figtree";
+import '@fontsource-variable/inter'
+// Supports weights 100-900
 //import "@fontsource/barlow";
 
-import Header from "../components/Header.astro";
+import Header from '../components/Header.astro'
+
+import { getLangFromUrl } from '../i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="https://use.typekit.net/fli3bzs.css" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -32,35 +37,21 @@ import Header from "../components/Header.astro";
 </html>
 <style is:global>
 	:root {
-		--accent: #6da4aa;
-		--dark: #0e1415; //0d0c21;
-		--light: #e3f4f4;
+		--accent: 109, 164, 170;
+		--dark: 31, 54, 61;
+		--light: 252, 251, 245;
 	}
 	html {
 		/* font-family: "Figtree Variable", sans-serif; */
 	}
 	body {
-		font-family: "Inter Variable", sans-serif;
+		font-family: 'Inter Variable', sans-serif;
 		font-size: 17px;
 		line-height: 1.5;
-		color: var(--dark);
+		color: rgb(var(--dark));
 		font-weight: 400;
-		background-color: var(--light);
-	}
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: min(80%, 840px);
-	}
-
-	a {
-		color: var(--accent);
-		text-decoration: none;
-
-		&:hover,
-		&:focus,
-		&:active {
-			text-decoration: underline;
-		}
+		background-color: rgb(var(--light));
+		margin: 0;
+		padding: 0;
 	}
 </style>

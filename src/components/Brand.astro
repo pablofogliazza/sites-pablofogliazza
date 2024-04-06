@@ -1,0 +1,26 @@
+---
+// Supports weights 200-900
+import '@fontsource-variable/literata'
+---
+
+<a class="brand" href="/" title="Ir a la página de inicio de pablofogliazza.dev">
+	<strong>pablofogliazza.dev</strong>{Astro.url.pathname === '/' ? '' : <span>{Astro.url.pathname}</span>}
+</a>
+
+<style lang="scss">
+	.brand {
+		font-family: 'p22-mackinac-pro', serif;
+		font-weight: 700;
+		font-style: normal;
+		display: flex;
+		align-items: center;
+		font-size: 17px;
+		text-decoration: none;
+		color: rgb(var(--dark));
+		transition: color 0.2s;
+
+		&:hover {
+			color: rgb(var(--accent));
+		}
+	}
+</style>

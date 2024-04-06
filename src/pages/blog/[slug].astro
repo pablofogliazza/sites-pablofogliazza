@@ -21,7 +21,7 @@ const { newsletter } = Astro.props as {
 const { Content } = await newsletter.render();
 ---
 
-<Layout title={newsletter.data.title}>
+<Layout title={`pablofogliazza.dev $middot; ${newsletter.data.title}`}>
 	<h1>{newsletter.data.title}</h1>
 	<Content />
 	<p>

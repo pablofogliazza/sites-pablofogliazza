@@ -1,0 +1,26 @@
+---
+import { languages } from '../i18n/ui'
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils'
+const lang = getLangFromUrl(Astro.url)
+const translatePath = useTranslatedPath(lang)
+---
+
+{lang === 'en' ? <a href={translatePath('/', 'es')}>¿Puede ser en Español?</a> : <a href={translatePath('/', 'en')}>Do you speak English?</a>}
+
+<style lang="scss">
+	a {
+		font-family: 'Inter Variable', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		font-size: 0.9rem;
+		font-weight: 400;
+		text-decoration: none;
+		color: rgb(var(--dark));
+		transition: color 0.2s;
+
+		&:hover {
+			color: rgb(var(--accent));
+		}
+	}
+</style>
