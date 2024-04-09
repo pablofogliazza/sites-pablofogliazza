@@ -5,7 +5,7 @@ const lang = getLangFromUrl(Astro.url)
 const translatePath = useTranslatedPath(lang)
 ---
 
-{lang === 'en' ? <a href={translatePath('/', 'es')}>¿Puede ser en Español?</a> : <a href={translatePath('/', 'en')}>Do you speak English?</a>}
+{lang === 'en' ? <a href={translatePath('/', 'es')}>¿En Español?</a> : <a href={translatePath('/', 'en')}>Speak English?</a>}
 
 <style lang="scss">
 	a {

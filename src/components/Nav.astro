@@ -6,7 +6,7 @@ const t = useTranslations(lang)
 const translatePath = useTranslatedPath(lang)
 ---
 
-<ul>
+<ul class="navegation-desktop">
 	<li>
 		<a href={translatePath('/')}>
 			{t('nav.home')}
@@ -35,6 +35,13 @@ const translatePath = useTranslatedPath(lang)
 </ul>
 
 <style lang="scss">
+	.navegation-desktop {
+		display: none;
+
+		@media (min-width: 768px) {
+			display: flex;
+		}
+	}
 	ul {
 		margin: 0;
 		padding: 0;

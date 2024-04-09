@@ -30,6 +30,11 @@ import Brand from '@/components/Brand.astro'
 			padding: 1rem 0;
 			width: min(90%, 1500px);
 			margin: 0 auto;
+
+			@media (max-width: 768px) {
+				display: flex;
+				justify-content: space-between;
+			}
 		}
 	}
 </style>

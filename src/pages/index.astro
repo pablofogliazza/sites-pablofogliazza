@@ -1,24 +1,24 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Card from "@/components/Card.astro";
-import Header from "../components/Header.astro";
-import Hero from "@/components/Hero.astro";
+import Layout from '@/layouts/Layout.astro'
+import Card from '@/components/Card.astro'
+import Header from '../components/Header.astro'
+import Hero from '@/components/Hero.astro'
+import Notification from '@/components/Notification.astro'
 
 // const allPosts = await Astro.glob("../pages/posts/*.mdx");
 ---
 
-<Layout
-	title="Diseñador Web y Desarrollador UI · Pablo Fogliazza · pablofogliazza.dev"
->
+<Layout title="Diseñador Web y Desarrollador UI · Pablo Fogliazza · pablofogliazza.dev">
+	<Notification />
 	<Hero />
-    
-    <!-- SKILLS -->
 
-    <!-- PROYECTS -->
+	<!-- SKILLS -->
 
-    <!-- BLOG -->
+	<!-- PROYECTS -->
 
-    <!-- CONTACTO -->
+	<!-- BLOG -->
+
+	<!-- CONTACTO -->
 
 	<!-- {
 		allPosts.map((post) => (
@@ -28,5 +28,3 @@ import Hero from "@/components/Hero.astro";
 		))
 	} -->
 </Layout>
-
-<style></style>
