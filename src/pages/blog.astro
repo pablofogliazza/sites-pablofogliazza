@@ -1,24 +1,144 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
-const blog = await getCollection("blog");
-const title = "Blog";
+import Layout from '@/layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('posts')
+
+const title = 'Blog'
 ---
 
 <Layout title="Blog">
-	<h1>{title}</h1>
-	<p>
-		Aquí vas a encontrar articulos que tienen relación con el mundo de la
-		experiencia de usuario, el diseño de interfases y el desarrollo frontend.
-	</p>
-	{
-		blog.map((p) => {
-			return (
-				<div>
-					<a href={`/blog/${p.slug}`}>{p.data.title}</a>
-					<p>{p.data.excerpt}</p>
-				</div>
-			);
-		})
-	}
+	<main class="blog">
+		<div class="blog__container">
+			<h1 class="blog__title">{title}</h1>
+			<p class="blog__download">Aquí vas a encontrar articulos que tienen relación con el mundo de la experiencia de usuario, el diseño de interfases y el desarrollo frontend.</p>
+			<div class="blog__list">
+				{
+					posts.map((p) => (
+						<a class="blog__entry" href={`/blog/${p.slug}`}>
+							<img src={p.data.image} alt={p.data.title} />
+							<p>{p.data.title}</p>
+							<p>{p.data.excerpt}</p>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</main>
 </Layout>
+
+<style lang="scss">
+	.blog {
+		&__container {
+			width: min(90%, 1500px);
+			margin: 0 auto;
+			padding-top: 12rem;
+
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 14px;
+		}
+
+		&__entries {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+			gap: 2rem;
+			margin-top: 4rem;
+		}
+
+		&__entry {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+
+			img {
+				width: 100%;
+				height: auto;
+				border-radius: 0.5rem;
+			}
+
+			a {
+				font-size: 1.5rem;
+				font-weight: 700;
+				color: rgb(var(--dark));
+				text-decoration: none;
+				transition: color 0.2s;
+
+				&:hover {
+					color: rgb(var(--primary));
+				}
+			}
+
+			p {
+				font-size: 1.2rem;
+				color: rgb(var(--dark));
+				opacity: 0.8;
+				margin-bottom: 0;
+				margin-top: 0;
+			}
+		}
+
+		&__box {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			margin-bottom: 2rem;
+		}
+
+		&__back {
+			display: flex;
+			align-items: center;
+			font-size: 0.8rem;
+			color: rgb(var(--dark));
+			text-decoration: none;
+			transition: color 0.2s;
+			font-weight: 700;
+			letter-spacing: 1px;
+			line-height: 1;
+			text-transform: uppercase;
+			opacity: 0.65;
+
+			svg {
+				display: block;
+				margin-right: 0.5rem;
+				width: auto;
+				height: 0.8rem;
+				fill: rgb(var(--dark));
+				padding-bottom: 1px;
+			}
+		}
+
+		&__date {
+			font-size: 0.8rem;
+			color: rgb(var(--dark));
+			opacity: 0.65;
+			font-weight: 700;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+		&__title {
+			font-family: var(--fontTitle);
+			line-height: 1.1;
+			font-size: 3rem;
+			text-wrap: balance;
+			font-weight: 900;
+			letter-spacing: -1px;
+			margin-top: 0;
+			margin-bottom: 0;
+			color: rgb(var(--dark));
+		}
+
+		&__excerpt {
+			//margin-bottom: 2rem;
+			font-size: 1.3rem;
+			line-height: 1.5;
+			font-weight: 300;
+			color: var(--dark);
+			opacity: 0.8;
+			max-width: 90%;
+			text-wrap: balance;
+		}
+	}
+</style>

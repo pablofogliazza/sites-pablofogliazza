@@ -1,24 +1,23 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '@/layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
 
-import { getCollection } from "astro:content";
-const proyectos = await getCollection("proyectos");
+const works = await getCollection('works')
 
-const title = "Trabajos";
+const title = 'Trabajos'
 ---
 
 <Layout title="Proyectos">
 	<h1>
 		{title}
 	</h1>
+	<div style="margin-top: 10rem;"></div>
 	{
-		proyectos.map((proyecto) => {
-			return (
-				<div>
-					<a href={`/proyectos/${proyecto.slug}`}>{proyecto.data.title}</a>
-					<p>{proyecto.data.excerpt}</p>
-				</div>
-			);
-		})
+		works.map((w) => (
+			<div>
+				<a href={`/works/${w.slug}`}>{w.data.title}</a>
+				<p>{w.data.excerpt}</p>
+			</div>
+		))
 	}
 </Layout>

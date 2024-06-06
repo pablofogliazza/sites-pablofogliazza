@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+const skills = await getCollection('skills')
+console.log(skills)
+---
+
+<div class="skills">
+	{
+		skills.map((skill) => (
+			<div class="skill">
+				<Icon class="skills__icon" name={skill.data.icon} size={64} />
+				<h3 class="skill__title">{skill.data.name}</h3>
+				{/* <p class="skill__description">{skill.data.description}</p> */}
+			</div>
+		))
+	}
+</div>
+
+<style lang="scss">
+	.skills {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+		gap: 3rem;
+
+		.skill {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			align-items: center;
+
+			&__title {
+				font-size: 0.8em;
+			}
+
+			&__description {
+				font-size: 13px;
+				opacity: 0.75;
+			}
+		}
+	}
+</style>

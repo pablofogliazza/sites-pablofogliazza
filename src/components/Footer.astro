@@ -1,0 +1,35 @@
+---
+const currentYear = new Date().getFullYear()
+const yearsExpirience = currentYear - 2006
+
+console.log(currentYear - 2006)
+---
+
+<div class="footer">
+	<div class="footer__container">
+		<p class="footer__text">;) 2006 &middot; {currentYear} &mdash; {yearsExpirience} Años contribuyendo al mundo digital &mdash; pablofogliazza.dev</p>
+	</div>
+</div>
+
+<style lang="scss">
+	.footer {
+		border-top: 1px solid #ffffff22;
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+
+		&__container {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+
+			width: min(90%, 1500px);
+			margin: 0 auto;
+		}
+
+		&__text {
+			font-size: 14px;
+			line-height: 1;
+			color: #ffffffcc;
+		}
+	}
+</style>

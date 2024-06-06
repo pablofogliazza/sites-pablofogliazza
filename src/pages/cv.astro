@@ -1,36 +1,57 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
-const title = "Curriculum Vitae";
+import CvRoles from '@/components/cvRoles.astro'
+import CvSkills from '@/components/cvSkills.astro'
+import Layout from '@/layouts/BaseLayout.astro'
 ---
 
 <Layout title="CV">
-	<h1>{title}</h1>
-	<section class="section">
-		<p class="section__title">Acerca de mi.</p>
-		<p class="section__text">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, nostrum
-			tempora nihil ea odio veritatis quibusdam modi fugit. Dicta, ad!
-			Voluptatum ratione optio sequi voluptatem mollitia recusandae quis,
-			incidunt ad!
-		</p>
+	<section class="cv">
+		<div class="cv__container">
+			<h1><span>Curriculum Vitae</span><br />Pablo Fogliazza</h1>
+			<CvRoles />
+			<CvSkills />
+			<div class="section">
+				<p class="section__title">Acerca de mi.</p>
+				<p class="section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, nostrum tempora nihil ea odio veritatis quibusdam modi fugit. Dicta, ad! Voluptatum ratione optio sequi voluptatem mollitia recusandae quis, incidunt ad!</p>
+			</div>
+			<section class="section">
+				<p class="section__title">Experiencia laboral.</p>
+				<p class="section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, nostrum tempora nihil ea odio veritatis quibusdam modi fugit. Dicta, ad! Voluptatum ratione optio sequi voluptatem mollitia recusandae quis, incidunt ad!</p>
+			</section>
+			<section class="section">
+				<p class="section__title">Educación.</p>
+				<p class="section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, nostrum tempora nihil ea odio veritatis quibusdam modi fugit. Dicta, ad! Voluptatum ratione optio sequi voluptatem mollitia recusandae quis, incidunt ad!</p>
+			</section>
+		</div>
 	</section>
-	<section class="section">
-		<p class="section__title">Experiencia laboral.</p>
-		<p class="section__text">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, nostrum
-			tempora nihil ea odio veritatis quibusdam modi fugit. Dicta, ad!
-			Voluptatum ratione optio sequi voluptatem mollitia recusandae quis,
-			incidunt ad!
-		</p>
-	</section>
-	<section class="section">
-		<p class="section__title">Educación.</p>
-		<p class="section__text">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, nostrum
-			tempora nihil ea odio veritatis quibusdam modi fugit. Dicta, ad!
-			Voluptatum ratione optio sequi voluptatem mollitia recusandae quis,
-			incidunt ad!
-		</p>
-	</section>
+
+	<style lang="scss">
+		.cv {
+			padding-top: 12rem;
+			padding-bottom: 8rem;
+			&__container {
+				width: min(90%, 1500px);
+				margin: 0 auto;
+			}
+
+			h1 {
+				font-family: var(--fontTitle);
+				font-weight: 700;
+				font-size: 3rem;
+				line-height: 1;
+				color: rgba(var(--dark), 1);
+				max-width: 60%;
+				margin-bottom: 8rem;
+
+				span {
+					font-weight: 200;
+					font-size: 1rem;
+					line-height: 1;
+					color: rgba(var(--dark), 1);
+					letter-spacing: 1px;
+					opacity: 0.8;
+				}
+			}
+		}
+	</style>
 </Layout>

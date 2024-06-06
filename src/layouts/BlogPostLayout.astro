@@ -1,16 +1,9 @@
 ---
-import Layout from "./Layout.astro";
-
-const { frontmatter } = Astro.props;
-
+import Layout from '@/layouts/BaseLayout.astro'
 ---
 
-<Layout title={frontmatter.title}>
-	<!-- ... -->
-	<h1>{frontmatter.title}</h1>
-	<h2>Autor del artículo: {frontmatter.author}</h2>
-	<p>{frontmatter.description}</p>
+<Layout title="">
 	<slot />
-	<!-- Aquí se inyecta el contenido Markdown -->
-	<!-- ... -->
 </Layout>
+
+<style lang="scss"></style>

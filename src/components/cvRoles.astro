@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content'
+
+const roles = await getCollection('roles')
+console.log(roles)
+---
+
+<div class="roles">
+	{
+		roles.map((role) => (
+			<div class="role">
+				<h2 class="role__title">{role.data.name}</h2>
+				<p class="role__description">{role.data.description}</p>
+			</div>
+		))
+	}
+</div>
+
+<style lang="scss">
+	.roles {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+		gap: 3rem;
+
+		.role {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+
+			&__title {
+				font-size: 1.5rem;
+			}
+
+			&__description {
+				font-size: 1rem;
+				opacity: 0.75;
+				line-height: 1.6;
+			}
+		}
+	}
+</style>

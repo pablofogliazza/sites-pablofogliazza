@@ -1,0 +1,7 @@
+name: MJML
+level: Senior
+icon: mjml
+description: |
+  MJML es un framework de código abierto que te permite crear correos electrónicos responsivos y bien diseñados. 
+  Con MJML, puedes crear plantillas de correo electrónico que se ven bien en cualquier dispositivo y cliente de correo electrónico.
+roles: developer

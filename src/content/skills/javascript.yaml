@@ -1,0 +1,7 @@
+name: JavaScript
+level: Intermedio
+icon: javascript
+description: |
+  JavaScript es un lenguaje de programación que se utiliza para crear interactividad en las páginas web. 
+  Con JavaScript, puedes agregar funcionalidades dinámicas a tus páginas web, como animaciones, efectos visuales y formularios interactivos.
+roles: developer

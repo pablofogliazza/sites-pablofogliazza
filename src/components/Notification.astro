@@ -23,11 +23,12 @@ const lastCommitMessage = data[0].commit.message
 
 <style lang="scss">
 	.notification {
+		font-family: var(--fontText);
 		svg {
 			fill: rgba(var(--dark), 1);
 		}
 		flex-wrap: wrap;
-		max-width: 540px;
+		max-width: 640px;
 		width: 70%;
 		position: absolute;
 		display: flex;
@@ -37,13 +38,12 @@ const lastCommitMessage = data[0].commit.message
 		top: 5rem;
 		left: 50%;
 		transform: translateX(-50%);
-		background-color: rgba(#ffffff, 0.6);
+		background-color: #ffffff;
 		color: rgba(var(--dark), 0.85);
 		border-radius: 32rem;
 		padding: 9px 24px;
 		font-size: 12px;
 		line-height: 1;
 		text-align: center;
-		box-shadow: 0 0 10px 0 rgba(var(--dark), 0.1);
 	}
 </style>

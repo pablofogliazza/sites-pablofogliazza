@@ -1,30 +1,148 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
+// ToDo:
+// - Add functionality to links.
+// - Add functionality to tags.
+// - Add functionality to back button.
+// - Add functionality and style (box shadow like ambience) to image.
+// - Add table of contents.
+// - Add style to content mdx
+
+import { type CollectionEntry, getCollection } from 'astro:content'
+import Layout from '../../layouts/BaseLayout.astro'
 
 // This function gets called at build time and generates the paths from the content folder
 export async function getStaticPaths() {
 	// Define the colection you are creating pages for
-	const allNewsletters = await getCollection("blog");
+	const allPosts = await getCollection('posts')
 
-	return allNewsletters.map((newsletter) => {
+	return allPosts.map((post) => {
 		return {
-			params: { slug: newsletter.slug },
-			props: { newsletter },
-		};
-	});
+			params: { slug: post.slug },
+			props: { post },
+		}
+	})
 }
 
-const { newsletter } = Astro.props as {
-	newsletter: CollectionEntry<"blog">;
-};
-const { Content } = await newsletter.render();
+const { post } = Astro.props as {
+	post: CollectionEntry<'posts'>
+}
+const { Content, headings } = await post.render()
 ---
 
-<Layout title={`pablofogliazza.dev $middot; ${newsletter.data.title}`}>
-	<h1>{newsletter.data.title}</h1>
-	<Content />
-	<p>
-		<a href="/">Back to previous newsletters</a>
-	</p>
+<Layout title={`pablofogliazza.dev · ${post.data.title}`}>
+	<main class="blog">
+		<div class="blog__top" style={`height: 8rem; background-image: url(${post.data.image}); background-size: cover; background-position: center center;`}></div>
+		<div class="blog__container">
+			<div class="blog__box">
+				<a class="blog__back" href="/blog/">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="transform: ;msFilter:;"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
+					<span>Volver</span>
+				</a>
+				<div class="blog__date">{post.data.date.toLocaleDateString('es-AR')}</div>
+			</div>
+			<h1 class="blog__title">{post.data.title}</h1>
+			<p class="blog__excerpt">{post.data.excerpt}</p>
+			<div class="blog__tags">
+				{post.data.tags.map((p) => <span style="text-transform: uppercase; display: inline-block; padding: 21px; border-radius: 32px; font-size: 12px; font-weight: 400; line-height: 1; margin: 0 8px 0 0; background-color: #463F3A10; color: rgba(var(--accent), .8); border: 1px solid rgba(var(--accent), .5); opacity: 1; font-family: var(--fontTitle)">{p}</span>)}
+			</div>
+			<img src={post.data.image} alt={post.data.title} style="width: calc(100% + 4rem); transform: translateX(-2rem); margin: 2rem 0; border-radius: 16px; box-shadow: 0 0 16px rgba(0,0,0,0.1);" />
+			<div class="blog__content">
+				<Content />
+			</div>
+		</div>
+	</main>
 </Layout>
+
+<style lang="scss">
+	.blog {
+		&__top {
+			margin-top: 83px;
+			filter: brightness(1.1) contrast(1.6);
+			background-blend-mode: multiply;
+			opacity: 0.7;
+		}
+		&__container {
+			width: min(90%, 1040px);
+			margin: 0 auto;
+			padding-top: 4rem;
+
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1.5rem;
+		}
+
+		&__box {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
+			margin-bottom: 2rem;
+		}
+
+		&__back {
+			display: flex;
+			align-items: center;
+			color: rgb(var(--dark));
+			text-decoration: none;
+			transition: color 0.2s;
+			font-size: 13px;
+			font-weight: 400;
+			line-height: 1;
+			text-transform: uppercase;
+			opacity: 0.8;
+
+			svg {
+				display: block;
+				margin-right: 0.5rem;
+				width: auto;
+				height: 0.8rem;
+				fill: rgb(var(--dark));
+				padding-bottom: 1px;
+			}
+
+			&:hover {
+				color: rgb(var(--accent));
+
+				svg {
+					fill: rgb(var(--accent));
+				}
+			}
+		}
+
+		&__date {
+			font-size: 13px;
+			font-weight: 400;
+			line-height: 1;
+			color: rgb(var(--dark));
+			opacity: 0.8;
+			text-transform: uppercase;
+		}
+		&__title {
+			font-family: var(--fontTitle);
+			line-height: 1.15;
+			font-size: 3rem;
+			text-wrap: balance;
+			font-weight: 900;
+			margin-top: 0;
+			margin-bottom: 0;
+			color: rgb(var(--dark));
+		}
+
+		&__excerpt {
+			//margin-bottom: 2rem;
+			font-size: 1.2rem;
+			line-height: 1.5;
+			font-weight: 300;
+			color: var(--dark);
+			opacity: 0.8;
+			text-wrap: balance;
+		}
+
+		&__content {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+	}
+</style>

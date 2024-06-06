@@ -1,0 +1,7 @@
+name: Git
+level: Senior
+icon: git
+description: |
+  Git es un sistema de control de versiones distribuido que te permite rastrear los cambios en tus archivos y colaborar con otros desarrolladores en proyectos de software.
+  Con Git, puedes trabajar de forma eficiente en proyectos de cualquier tamaño y escala, manteniendo un historial completo de todos los cambios realizados en el código.
+roles: developer

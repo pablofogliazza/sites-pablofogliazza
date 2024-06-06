@@ -1,0 +1,92 @@
+---
+const oldSkills = [
+	{
+		color: '#f06529',
+		name: 'HTML',
+		level: 90,
+	},
+	{
+		color: '#2965f1',
+		name: 'CSS',
+		level: 80,
+	},
+	{
+		color: '#f0db4f',
+		name: 'JavaScript',
+		level: 70,
+	},
+	{
+		color: '#de4c36',
+		name: 'Git',
+		level: 70,
+	},
+	{
+		color: '#ff5d01',
+		name: 'Astro',
+		icon: 'astro',
+	},
+	{
+		name: 'React',
+		color: '#61dafb',
+		icon: 'react',
+	},
+]
+
+import { Icon } from 'astro-icon/components'
+import { getCollection } from 'astro:content'
+const skills = await getCollection('skills')
+---
+
+<div class="skills">
+	<div class="skills__container">
+		<div class="skills__list">
+			{
+				skills.map((s) => (
+					<div class="skills__item">
+						<span class="skills__name">{s.data.name}</span>
+						<Icon class="skills__icon" name={s.data.icon} size={80} />
+					</div>
+				))
+			}
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	.skills {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+
+		&__container {
+			width: min(90%, 1500px);
+			margin: 0 auto;
+		}
+
+		&__list {
+			display: flex;
+			justify-content: space-between;
+			//grid-template-columns: repeat(10, 1fr);
+			gap: 14px;
+		}
+
+		&__item {
+			display: flex;
+			flex-direction: column-reverse;
+			gap: 20px;
+			align-items: center;
+		}
+
+		&__name {
+			font-family: var(--font-family);
+			font-size: 13px;
+			line-height: 1;
+			font-weight: 500;
+		}
+
+		&__icon {
+			mix-blend-mode: screen;
+			//filter: brightness(0.7) contrast(1.6) grayscale(80%);
+			opacity: 0.8;
+		}
+	}
+</style>

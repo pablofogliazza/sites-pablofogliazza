@@ -1,64 +1,46 @@
 ---
-import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils'
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
-const translatePath = useTranslatedPath(lang)
+import { navMenuEsData } from '@/data/siteData'
 ---
 
-<ul class="navegation-desktop">
-	<li>
-		<a href={translatePath('/')}>
-			{t('nav.home')}
-		</a>
-	</li>
-	<li>
-		<a href={translatePath('/cv/')}>
-			{t('nav.about')}
-		</a>
-	</li>
-	<li>
-		<a href={translatePath('/blog/')}>
-			{t('nav.blog')}
-		</a>
-	</li>
-	<li>
-		<a href={translatePath('/proyectos/')}>
-			{t('nav.jobs')}
-		</a>
-	</li>
-	<li>
-		<a href={translatePath('/contacto/')}>
-			{t('nav.contact')}
-		</a>
-	</li>
+<ul class="navMenu">
+	{
+		navMenuEsData.map((i) => (
+			<li>
+				<a class="navMenu__item" href={i.href}>
+					{i.title}
+				</a>
+			</li>
+		))
+	}
 </ul>
 
 <style lang="scss">
-	.navegation-desktop {
+	.navMenu {
 		display: none;
-
-		@media (min-width: 768px) {
-			display: flex;
-		}
-	}
-	ul {
 		margin: 0;
 		padding: 0;
-		display: flex;
-		align-items: center;
-		gap: 12px;
+
 		list-style: none;
-		font-size: 0.9rem;
-		font-weight: 500;
-	}
+		@media (min-width: 768px) {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+		}
 
-	a {
-		color: rgba(var(--dark), 0.7);
-		text-decoration: none;
-	}
+		&__item {
+			font-family: var(--fontText);
+			font-weight: 300;
+			font-size: 15px;
+			line-height: 1;
+			color: rgba(var(--dark), 1);
 
-	a:hover {
-		color: rgb(var(--dark));
+			text-decoration: none;
+
+			transition: color 0.2s ease-in-out;
+
+			&:hover {
+				color: rgb(var(--accent));
+			}
+		}
 	}
 </style>

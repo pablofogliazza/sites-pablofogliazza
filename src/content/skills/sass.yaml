@@ -1,0 +1,7 @@
+name: SASS
+level: Avanzado
+icon: sass
+description: |
+  SASS es un preprocesador de CSS que te permite escribir estilos de forma más eficiente y organizada. 
+  Con SASS, puedes utilizar variables, funciones y mixins para reutilizar estilos y crear hojas de estilo más mantenibles y escalables.
+roles: developer

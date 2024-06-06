@@ -1,0 +1,7 @@
+name: Tailwind CSS
+level: Avanzado
+icon: tailwind
+description: |
+  Tailwind CSS es un framework de diseño que te permite crear interfaces de usuario personalizadas y bien diseñadas. 
+  Con Tailwind CSS, puedes utilizar clases de estilo predefinidas para diseñar rápidamente tus componentes y páginas web.
+roles: developer
