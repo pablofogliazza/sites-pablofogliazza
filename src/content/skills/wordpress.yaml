@@ -1,0 +1,7 @@
+name: Wordpress
+level: Avanzado
+icon: wordpress
+description: |
+  Wordpress es un sistema de gestión de contenidos (CMS) que te permite crear y administrar sitios web de manera sencilla y eficiente. 
+  Con Wordpress, puedes crear blogs, tiendas en línea, portafolios y mucho más, sin necesidad de tener conocimientos avanzados de programación.
+roles: developer

@@ -43,11 +43,14 @@ const works = defineCollection({
 
 const posts = defineCollection({
   type: "content", // v2.5.0 y posteriores
-  schema: z.object({
+  schema: ({image}) => z.object({
     title: z.string(),
     date: z.date(),
     tags: z.array(reference('tags').optional()),
-    image: z.string().optional(),
+    image: image().refine((img) => img.width >= 1080, {
+        message: 'Image width must be at least 1080px',
+    }),
+    imageAlt: z.string().optional(),
     excerpt: z.string(),
   }),
 });

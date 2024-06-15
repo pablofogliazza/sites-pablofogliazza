@@ -12,6 +12,8 @@ import { Image } from 'astro:assets'
 import type { CollectionEntry } from 'astro:content'
 import Layout from '@/layouts/BaseLayout.astro'
 
+console.log(tagsData)
+
 // This function gets called at build time and generates the paths from the content folder
 // export async function getStaticPaths() {
 // 	// Define the colection you are creating pages for
@@ -34,7 +36,6 @@ export async function getStaticPaths() {
 	return posts.map((p) => {
 		return {
 			params: { slug: p.slug },
-			props: { post: p },
 		}
 	})
 }

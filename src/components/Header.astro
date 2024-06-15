@@ -9,15 +9,18 @@ import { Icon } from 'astro-icon/components'
 	<div class="header__container">
 		<Brand />
 		<Nav />
-		<Icon class="theme" name="sun" size="24" />
+		<Icon class="theme" name="sun" size={24} />
 		<!-- <LanguagePicker /> -->
 	</div>
 </header>
 <script>
 	const theme = document.querySelector('.theme')
+	const r = document.querySelector('body')
+	console.log(r)
+	console.log(theme)
 
 	theme?.addEventListener('click', () => {
-		alert('Cambiemos de thema')
+		r.classList.toggle('dark')
 	})
 </script>
 
