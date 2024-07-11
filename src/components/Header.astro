@@ -14,36 +14,43 @@ import { Icon } from 'astro-icon/components'
 	</div>
 </header>
 <script>
+	import gsap from 'gsap'
+
 	const theme = document.querySelector('.theme')
 	const r = document.querySelector('body')
-	console.log(r)
-	console.log(theme)
 
 	theme?.addEventListener('click', () => {
-		r.classList.toggle('dark')
+		r?.classList.toggle('dark')
+	})
+
+	gsap.set(theme, { rotationZ: -295 })
+	gsap.to(theme, {
+		rotationZ: 0,
+		duration: 2,
+		ease: 'ease.out',
 	})
 </script>
 
 <style lang="scss">
 	.header {
-		background-color: rgba(var(--light), 0.65);
+		background-color: rgba(var(--light), 0.6);
 		backdrop-filter: blur(5px);
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
 		z-index: 1000;
-		border-bottom: 1px solid rgba(var(--dark), 0.075);
+		border-bottom: 1px solid rgba(var(--dark), 0.06);
 
 		&__container {
-			width: min(90%, 1500px);
+			width: min(90%, 1200px);
 			margin: 0 auto;
-			padding: 2rem 0;
+			padding: 1.5rem 0;
 
-			display: flex;
-			//grid-template-columns: 1fr auto 1fr;
+			display: grid;
+			grid-template-columns: 1fr auto 1fr;
 			align-items: center;
-			justify-content: flex-start;
+			justify-content: space-between;
 			gap: 2rem;
 			// @media (max-width: 768px) {
 			// 	display: flex;
@@ -53,6 +60,7 @@ import { Icon } from 'astro-icon/components'
 
 		.theme {
 			margin-left: auto;
+			cursor: pointer;
 		}
 	}
 </style>

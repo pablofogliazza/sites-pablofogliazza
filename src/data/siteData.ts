@@ -4,17 +4,13 @@ export const baseData = {
 };
 
 export const navMenuEsData = [
-	{
-		href: '/',
-		title: 'inicio',
-	},
+    {
+        href: '/blog/',
+        title: 'blog',
+    },
 	{
 		href: '/cv/',
 		title: 'curriculum vitae',
-	},
-	{
-		href: '/blog/',
-		title: 'blog',
 	},
 	{
 		href: '/portfolio/',
@@ -25,3 +21,34 @@ export const navMenuEsData = [
 		title: 'contacto',
 	},
 ]
+
+export const socialLinks = [
+    {
+        name: 'LinkedIn',
+        icon: 'linkedin',
+        url: '#',
+    },
+    {
+        name: 'GitHub',
+        icon: 'github',
+        url: '#',
+    },
+    {
+        name: 'Threads',
+        icon: 'threads',
+        url: '#',
+    },
+    {
+        name: 'X',
+        icon: 'twitter',
+        url: '#',
+    },
+]
+
+export const actualPosition = {
+    position: 'Front-End Developer',
+    company: 'Forma by Moov Media Group',
+    location: 'Chile',
+    startDate: '2021',
+    endDate: 'Present',
+}  

@@ -1,0 +1,94 @@
+---
+title: "¿Cómo darle vida a tu web con Astro y GSAP?"
+date: 2024-06-21T22:17:26.132703Z
+tags: [ "tutorial" ]
+image: "./images/astro-gsap.jpg"
+excerpt: "Descubre cómo combinar la velocidad de Astro y las increíbles animaciones de GSAP para crear sitios web impresionantes."
+---
+
+## ¿Qué es Astro?
+
+¡Hola! ¿Has oído hablar de Astro? Es un framework increíble para crear sitios web súper rápidos y eficientes. Astro genera páginas estáticas durante la construcción, lo que significa que tus sitios cargan a la velocidad de la luz. Además, ¡puedes usar componentes de diferentes frameworks en el mismo proyecto! Así que si te encanta React, Vue o Svelte, Astro te permite combinarlos sin problemas. ¿No es genial?
+
+## ¿Qué es GSAP?
+
+Por otro lado, GSAP (GreenSock Animation Platform) es tu mejor aliado si quieres animaciones fluidas y de alto rendimiento en tu web. Con GSAP, puedes crear desde simples transiciones hasta animaciones complejas que funcionan de maravilla en cualquier navegador. ¿Te imaginas la cantidad de cosas geniales que puedes hacer con él?
+
+## Cómo integrar GSAP en nuestras webs de Astro
+
+¡Vamos a lo divertido! Integrar GSAP en un proyecto de Astro es súper fácil. Sigue estos pasos y en poco tiempo tendrás animaciones impresionantes en tu sitio.
+
+### 1. Crear un nuevo proyecto Astro
+
+Primero, si aún no tienes un proyecto Astro, crea uno con este comando:
+
+```bash
+npm init astro@latest
+```
+Sigue las instrucciones y tendrás tu proyecto listo en un santiamén.
+
+### 2. Instalar GSAP
+
+Ahora, instala GSAP con npm:
+
+```bash
+npm install gsap
+```
+### 3. Configurar GSAP en Astro
+
+Con GSAP instalado, es hora de poner manos a la obra. Aquí tienes un ejemplo de cómo animar un componente en Astro.
+
+Crear un componente animado
+
+Crea un nuevo archivo de componente, digamos AnimatedComponent.astro:
+
+```astro
+---
+import { onMount } from 'solid-js';
+import { gsap } from 'gsap';
+
+const animateElement = () => {
+  const element = document.querySelector('.box');
+  gsap.to(element, { x: 100, duration: 1 });
+};
+
+onMount(() => {
+  animateElement();
+});
+---
+
+<style>
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+</style>
+
+<div class="box"></div>
+```
+Incluir el componente en tu página
+
+Luego, incluye este componente en una de tus páginas, por ejemplo, en src/pages/index.astro:
+    
+```astro
+---
+import AnimatedComponent from '../components/AnimatedComponent.astro';
+---
+
+<layout>
+  <h1>Bienvenido a mi sitio web</h1>
+  <AnimatedComponent />
+</layout>
+```
+### 4. Ejecutar tu proyecto Astro
+
+¡Ya casi terminamos! Ejecuta tu proyecto Astro para ver la magia en acción:
+```bash
+npm run dev
+```
+Abre tu navegador en la url sugerida en el bash y disfruta de tu nueva animación.
+
+## Conclusión
+
+¡Y eso es todo! Integrar GSAP en Astro no solo es fácil, sino también muy divertido. Con estas herramientas, puedes crear sitios web impresionantes que encantarán a tus usuarios. ¡Anímate a probarlo y cuéntanos cómo te fue!

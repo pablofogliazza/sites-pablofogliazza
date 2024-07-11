@@ -29,7 +29,7 @@ const socialLinks = [
 	<div class="hero__background"></div>
 	<div class="hero__container">
 		<p class="hero__epigraph">¡Hola! Me llamo Pablo</p>
-		<p class="hero__title">Como desarrollador web me especializo en convertir diseños en líneas de código.</p>
+		<p class="hero__title">Desarrollador web especializado en convertir diseños a código.</p>
 		<div class="hero__buttons-wrapper">
 			<a class="hero__button" href="/cv">Descargar CV</a>
 			{
@@ -64,7 +64,7 @@ const socialLinks = [
 
 			display: flex;
 			flex-direction: column;
-			align-items: flex-start;
+			align-items: center;
 			gap: 14px;
 		}
 
@@ -95,11 +95,12 @@ const socialLinks = [
 
 		&__epigraph {
 			font-family: var(--fontTitle);
-			font-weight: 200;
-			font-size: 1.6rem;
+			font-weight: 400;
+			font-size: 16px;
 			line-height: 1;
-			color: rgba(var(--dark), 1);
-			opacity: 0.8;
+			color: rgba(var(--accent), 1);
+			opacity: 1;
+			text-align: center;
 		}
 
 		&__title {
@@ -108,8 +109,8 @@ const socialLinks = [
 			font-size: 3rem;
 			line-height: 1.1;
 			color: rgba(var(--dark), 1);
-
-			max-width: 60%;
+			text-align: center;
+			text-wrap: balance;
 		}
 
 		&__button {

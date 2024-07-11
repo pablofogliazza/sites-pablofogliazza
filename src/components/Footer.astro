@@ -1,19 +1,29 @@
 ---
+import { socialLinks } from '@/data/siteData'
+import { Icon } from 'astro-icon/components'
 const currentYear = new Date().getFullYear()
 const yearsExpirience = currentYear - 2006
-
 console.log(currentYear - 2006)
 ---
 
 <div class="footer">
 	<div class="footer__container">
-		<p class="footer__text">;) 2006 &middot; {currentYear} &mdash; {yearsExpirience} Años contribuyendo al mundo digital &mdash; pablofogliazza.dev</p>
+		<p class="footer__text">UI & Front&mdash;End Developer<br />2006 &mdash; {currentYear} &middot; {yearsExpirience} Años contribuyendo al mundo digital</p>
+		<div class="footer__social">
+			{
+				socialLinks.map(({ url, name, icon }, index) => (
+					<a href={url} target="_blank" rel="noopener noreferrer" aria-label={name} class="footer__social-link" title={name}>
+						<Icon name={icon} size={24} />
+					</a>
+				))
+			}
+		</div>
 	</div>
 </div>
 
 <style lang="scss">
 	.footer {
-		border-top: 1px solid #ffffff22;
+		border-top: 1px solid rgba(var(--dark), 0.1);
 		padding-top: 3rem;
 		padding-bottom: 3rem;
 
@@ -22,14 +32,21 @@ console.log(currentYear - 2006)
 			justify-content: flex-start;
 			align-items: center;
 
-			width: min(90%, 1500px);
+			width: min(90%, 1200px);
 			margin: 0 auto;
 		}
 
 		&__text {
+			font-family: var(--fontTitle);
+			font-weight: 400;
 			font-size: 14px;
-			line-height: 1;
-			color: #ffffffcc;
+			line-height: 1.5;
+			color: rgba(var(--dark), 1);
+
+			a {
+				color: rgba(var(--accent), 1);
+				text-decoration: none;
+			}
 		}
 	}
 </style>
